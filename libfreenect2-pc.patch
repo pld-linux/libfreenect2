@@ -1,0 +1,10 @@
+--- libfreenect2-0.2.0/freenect2.pc.in.orig	2016-04-27 22:34:51.000000000 +0200
++++ libfreenect2-0.2.0/freenect2.pc.in	2020-03-15 20:33:15.555190204 +0100
+@@ -1,6 +1,6 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=@CMAKE_INSTALL_PREFIX@
+-libdir=${prefix}/lib
++libdir=${prefix}/lib@LIB_SUFFIX@
+ includedir=${prefix}/include
+ 
+ Name: freenect2 

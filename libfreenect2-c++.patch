@@ -1,0 +1,11 @@
+--- libfreenect2-0.2.0/src/frame_listener_impl.cpp.orig	2016-04-27 22:34:51.000000000 +0200
++++ libfreenect2-0.2.0/src/frame_listener_impl.cpp	2020-03-15 19:08:33.919386454 +0100
+@@ -26,6 +26,8 @@
+ 
+ /** @file frame_listener_impl.cpp Implementation classes for frame listeners. */
+ 
++#include <functional>
++
+ #include <libfreenect2/frame_listener_impl.h>
+ #include <libfreenect2/threading.h>
+ 
