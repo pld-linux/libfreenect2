@@ -1,0 +1,36 @@
+--- libfreenect2-0.2.0/freenect2.pc.in.orig	2016-04-27 22:34:51.000000000 +0200
++++ libfreenect2-0.2.0/freenect2.pc.in	2020-03-15 20:33:15.555190204 +0100
+@@ -1,6 +1,6 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=@CMAKE_INSTALL_PREFIX@
+-libdir=${prefix}/lib
++libdir=${prefix}/lib@LIB_SUFFIX@
+ includedir=${prefix}/include
+ 
+ Name: freenect2 
+--- libfreenect2-0.2.0/CMakeLists.txt.orig	2016-04-27 22:34:51.000000000 +0200
++++ libfreenect2-0.2.0/CMakeLists.txt	2020-03-17 16:19:45.785331149 +0100
+@@ -421,11 +421,11 @@
+ CONFIGURE_FILE(freenect2.cmake.in "${PROJECT_BINARY_DIR}/freenect2Config.cmake" @ONLY)
+ CONFIGURE_FILE(freenect2.pc.in "${PROJECT_BINARY_DIR}/freenect2.pc" @ONLY)
+ 
+-INSTALL(TARGETS freenect2 DESTINATION lib RUNTIME DESTINATION bin)
++INSTALL(TARGETS freenect2 DESTINATION lib${LIB_SUFFIX} RUNTIME DESTINATION bin)
+ INSTALL(DIRECTORY "${MY_DIR}/include/${PROJECT_NAME}" DESTINATION include PATTERN "*.in" EXCLUDE)
+ INSTALL(DIRECTORY "${PROJECT_BINARY_DIR}/${PROJECT_NAME}" DESTINATION include)
+-INSTALL(FILES "${PROJECT_BINARY_DIR}/freenect2Config.cmake" DESTINATION lib/cmake/freenect2/)
+-INSTALL(FILES "${PROJECT_BINARY_DIR}/freenect2.pc" DESTINATION lib/pkgconfig/)
++INSTALL(FILES "${PROJECT_BINARY_DIR}/freenect2Config.cmake" DESTINATION lib${LIB_SUFFIX}/cmake/freenect2/)
++INSTALL(FILES "${PROJECT_BINARY_DIR}/freenect2.pc" DESTINATION lib${LIB_SUFFIX}/pkgconfig/)
+ 
+ ADD_SUBDIRECTORY(${MY_DIR}/doc)
+ 
+@@ -450,7 +450,7 @@
+     IF(NOT ${CMAKE_INSTALL_PREFIX} MATCHES "^/usr")
+       SET_TARGET_PROPERTIES(freenect2-openni2 PROPERTIES INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+     ENDIF()
+-    INSTALL(TARGETS freenect2-openni2 DESTINATION lib/OpenNI2/Drivers RUNTIME DESTINATION bin)
++    INSTALL(TARGETS freenect2-openni2 DESTINATION lib${LIB_SUFFIX}/OpenNI2/Drivers RUNTIME DESTINATION bin)
+     ADD_CUSTOM_TARGET(install-openni2
+       DEPENDS freenect2-openni2
+       COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_INSTALL_PREFIX}/lib/OpenNI2/Drivers/" "${OpenNI2_LIBRARY_DIR}/OpenNI2/Drivers/"

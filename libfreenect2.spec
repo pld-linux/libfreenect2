@@ -15,7 +15,7 @@ Source0:	https://github.com/OpenKinect/libfreenect2/archive/v%{version}/%{name}-
 # Source0-md5:	54bde616ede3cff23eaeb2a736ca6e45
 Patch0:		%{name}-c++.patch
 Patch1:		%{name}-link.patch
-Patch2:		%{name}-pc.patch
+Patch2:		%{name}-libsuffix.patch
 URL:		https://openkinect.org/wiki/Main_Page
 BuildRequires:	OpenCL-devel >= 1.1
 BuildRequires:	OpenGL-devel >= 3.1
