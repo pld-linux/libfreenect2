@@ -6,13 +6,13 @@
 Summary:	Driver for Kinect for Windows v2 (K4W2) devices
 Summary(pl.UTF-8):	Sterownik dla urządzeń Kinect for Windows v2 (K4W2)
 Name:		libfreenect2
-Version:	0.2.0
+Version:	0.2.1
 Release:	1
 License:	Apache v2.0 or GPL v2
 Group:		Libraries
 #Source0Download: https://github.com/OpenKinect/libfreenect2/releases
 Source0:	https://github.com/OpenKinect/libfreenect2/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	54bde616ede3cff23eaeb2a736ca6e45
+# Source0-md5:	b21893ee64a4de543d75e992798bebde
 Patch0:		%{name}-c++.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-libsuffix.patch
